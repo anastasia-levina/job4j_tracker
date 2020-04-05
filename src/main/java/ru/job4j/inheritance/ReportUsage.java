@@ -6,5 +6,8 @@ public class ReportUsage {
         JSONReport report = new JSONReport();
         String text = report.generate(" name", " body");
         System.out.println(text);
+        HtmlReport htmlReport = new HtmlReport();
+        String textText = htmlReport.generate("Report's name", "Report's body");
+        System.out.println(textText);
     }
 }

@@ -6,13 +6,9 @@ public class Shop {
 
         products[index] = null;
 
-        for (int i = index; i < products.length; i++) {
-            Product product = products[i];
-
-            if (product == null && i < products.length - 1) {
-                products[i] = products[i + 1];
-                products[i + 1] = null;
-            }
+        for (int i = index; i < products.length - 1; i++) {
+            products[i] = products[i + 1];
+            products[i + 1] = null;
         }
         return products;
     }

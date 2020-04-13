@@ -46,13 +46,13 @@ public class StartUI {
                 System.out.println("Enter id: ");
                 String id = scanner.nextLine();
                 System.out.println("item name to this id: ");
-                findItemsName(tracker.findById(id));
+                System.out.println(tracker.findById(id).getName());
             } else if (select == 5) {
                 System.out.println("=== Find items by name ====");
                 System.out.println("Enter name: ");
                 String key = scanner.nextLine();
-                System.out.println("id this item(s): ");
-                findItemsId(tracker.findByName(key));
+                System.out.println("information this item(s): ");
+                allItems(tracker.findByName(key));
             } else if (select == 6) {
                 System.out.println("=== Exit Program ====");
                 System.out.print("Goodbye!");
@@ -77,16 +77,6 @@ public class StartUI {
         for (int index = 0; index < items.length; index++) {
             System.out.println("name: " + items[index].getName() + ", id: " + items[index].getId());
         }
-    }
-
-    private void findItemsId(Item[] items) {
-        for (int index = 0; index < items.length; index++) {
-            System.out.println(items[index].getId());
-        }
-    }
-
-    private void findItemsName(Item item) {
-        System.out.println(item.getName());
     }
 
     public static void main(String[] args) {

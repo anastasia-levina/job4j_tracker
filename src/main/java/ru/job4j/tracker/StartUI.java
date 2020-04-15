@@ -77,8 +77,13 @@ public class StartUI {
     public static void findIdItem(Input input, Tracker tracker) {
         System.out.println("=== Find item by Id ====");
         String id = input.askStr("Enter id: ");
-        System.out.println("item name to this id: ");
-        System.out.println(tracker.findById(id).getName());
+        Item expected = tracker.findById(id);
+        if (expected == null) {
+            System.out.println("item does not exist");
+        } else {
+            System.out.println("item name to this id: ");
+            System.out.println(expected);
+        }
     }
 
     public static void findNameItem(Input input, Tracker tracker) {

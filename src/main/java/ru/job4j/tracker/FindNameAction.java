@@ -9,7 +9,7 @@ public class FindNameAction implements UserAction {
     @Override
     public boolean execute(Input input, Tracker tracker) {
         String key = input.askStr("Enter name: ");
-        System.out.println("information this item(s): ");
+        System.out.print("information this item(s): ");
         StartUI.allItems(tracker.findByName(key));
         return true;
     }

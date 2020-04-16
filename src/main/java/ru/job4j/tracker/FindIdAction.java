@@ -13,7 +13,7 @@ public class FindIdAction implements UserAction {
         if (expected == null) {
             System.out.println("item does not exist");
         } else {
-            System.out.println("item name to this id: ");
+            System.out.println("information this item: ");
             System.out.println(expected);
         }
         return true;

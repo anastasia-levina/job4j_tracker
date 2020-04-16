@@ -22,7 +22,7 @@ public class StartUI {
 
     public static void allItems(Item[] items) {
         for (int index = 0; index < items.length; index++) {
-            System.out.println("name: " + items[index].getName() + ", id: " + items[index].getId());
+            System.out.println(items[index]);
         }
     }
 

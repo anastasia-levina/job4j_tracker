@@ -12,7 +12,8 @@ public class StartUITest {
         String[] answers = {"year"};
         Input input = new StubInput(answers);
         Tracker tracker = new Tracker();
-        StartUI.createItem(input, tracker);
+        CreateAction createAction = new CreateAction();
+        createAction.execute(input, tracker);
         Item created = tracker.findAll()[0];
         Item expected = new Item("year");
         assertThat(created.getName(), is(expected.getName()));
@@ -22,12 +23,13 @@ public class StartUITest {
     public void whenReplaceItem() {
         Tracker tracker = new Tracker();
         Item item = new Item("new item");
+        ReplaceAction replaceAction = new ReplaceAction();
         tracker.add(item);
         String[] answers = {
                 item.getId(),
                 "replaced item"
         };
-        StartUI.replaceItem(new StubInput(answers), tracker);
+        replaceAction.execute(new StubInput(answers), tracker);
         Item replaced = tracker.findById(item.getId());
         assertThat(replaced.getName(), is("replaced item"));
     }
@@ -36,13 +38,14 @@ public class StartUITest {
     public void whenDeleteItem() {
         Tracker tracker = new Tracker();
         Item expected = new Item("new expected");
+        DeleteAction deleteAction = new DeleteAction();
         expected = tracker.add(expected);
         Item result = tracker.findById(expected.getId());
         String[] answers = {
                 expected.getId()
         };
         assertNotNull(result);
-        StartUI.deleteItem(new StubInput(answers), tracker);
+        deleteAction.execute(new StubInput(answers), tracker);
         result = tracker.findById(expected.getId());
         assertNull(result);
     }

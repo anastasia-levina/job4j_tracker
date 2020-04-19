@@ -17,8 +17,11 @@ public class FindEl {
 
     public static void main(String[] args) {
         String[] value = new String[2];
+        value[0] = "array";
+        value[1] = "key";
         try {
             indexOf(value, "key");
+            System.out.println("This element exist");
         } catch (ElementNotFoundException e) {
             e.printStackTrace();
         }

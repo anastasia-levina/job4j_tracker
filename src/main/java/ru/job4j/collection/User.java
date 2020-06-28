@@ -14,7 +14,7 @@ public class User implements Comparable<User> {
 
     @Override
     public int compareTo(User o) {
-        int result = CharSequence.compare(name, o.name);
+        int result = name.compareTo(o.name);
         if (result == 0) {
             result = Integer.compare(age, o.age);
         }

@@ -20,7 +20,6 @@ public class BankService {
             if (!accounts.contains(account)) {
                 accounts.add(account);
             }
-            users.putIfAbsent(user, accounts);
         }
     }
 

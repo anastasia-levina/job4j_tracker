@@ -15,7 +15,8 @@ public class MapStudentTest {
         Student alekseev = new Student("Alekseev", 80);
         Student medlin = new Student("Medlin", 93);
         Student belov = new Student("Belov", 69);
-        List<Student> students = Arrays.asList(alekseev, medlin, belov);
+        Student belov2 = new Student("Belov", 69);
+        List<Student> students = Arrays.asList(alekseev, medlin, belov, belov2);
         Map<String, Integer> result = MapStudent.studentMap(students);
         Map<String, Integer> expected = Map.of("Alekseev", 80, "Medlin", 93, "Belov", 69);
         assertThat(result, is(expected));

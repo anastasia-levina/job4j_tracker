@@ -7,10 +7,10 @@ import java.util.stream.Collectors;
 public class MapStudent {
     public static Map<String, Integer> studentMap(List<Student> students) {
         return students.stream()
-                .distinct()
                 .collect(Collectors.toMap(
                         Student::getSurname,
-                        Student::getScore)
+                        Student::getScore,
+                        (st, st1) -> st)
                 );
     }
 }

@@ -62,7 +62,7 @@ public class JobTest {
                 new Job("X task", 0)
         );
         jobs.sort(new JobAscByName());
-        List<Job> expect = Arrays.asList(
+        List<Job> expect = List.of(
                 new Job("Fix bug", 1),
                 new Job("Fix bug", 4),
                 new Job("Fix bug", 2),
@@ -80,7 +80,7 @@ public class JobTest {
                 new Job("X task", 0)
         );
         jobs.sort(new JobAscByPriority());
-        List<Job> expect = Arrays.asList(
+        List<Job> expect = List.of(
                 new Job("X task", 0),
                 new Job("Fix bug", 1),
                 new Job("Fix bug", 2),
@@ -99,7 +99,7 @@ public class JobTest {
                 new Job("X task", 0)
         );
         jobs.sort(new JobDescByName());
-        List<Job> expect = Arrays.asList(
+        List<Job> expect = List.of(
                 new Job("X task", 0),
                 new Job("Fix bug", 1),
                 new Job("Fix bug", 4),
@@ -118,7 +118,7 @@ public class JobTest {
                 new Job("X task", 0)
         );
         jobs.sort(new JobDescByPriority());
-        List<Job> expect = Arrays.asList(
+        List<Job> expect = List.of(
                 new Job("Fix bug", 4),
                 new Job("Fix bug", 2),
                 new Job("Fix bug", 1),

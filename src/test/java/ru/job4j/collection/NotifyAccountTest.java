@@ -12,12 +12,12 @@ import static org.junit.Assert.*;
 public class NotifyAccountTest {
     @Test
     public void sent() {
-        List<Account> accounts = Arrays.asList(
+        List<Account> accounts = List.of(
                 new Account("123", "Petr Arsentev", "eDer3432f"),
                 new Account("142", ",Petr Arsentev", "000001")
         );
         HashSet<Account> expect = new HashSet<>(
-                Arrays.asList(
+                List.of(
                         new Account("123", "Petr Arsentev", "eDer3432f"),
                         new Account("142", "Petr Arsentev", "000001")
                 )
@@ -27,13 +27,13 @@ public class NotifyAccountTest {
 
     @Test
     public void deleteDuplicate() {
-        List<Account> accounts = Arrays.asList(
+        List<Account> accounts = List.of(
                 new Account("123", "Anastasia Levina", "q0w9er555"),
                 new Account("123", "Anastasia Levina", "q0w9er555"),
                 new Account("125", "Anastasia Levina", "q0w9er")
         );
         HashSet<Account> expected = new HashSet<>(
-                Arrays.asList(
+                List.of(
                         new Account("123", "Anastasia Levina", "q0w9er555"),
                         new Account("125", "Anastasia Levina", "q0w9er")
                 )

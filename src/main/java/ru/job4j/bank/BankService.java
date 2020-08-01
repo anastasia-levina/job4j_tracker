@@ -6,38 +6,34 @@ public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
 
     public void addUser(User user) {
-        List<Account> newUser = new ArrayList<>();
-        users.putIfAbsent(user, newUser);
+        List<Account> accounts = new ArrayList<>();
+        users.putIfAbsent(user, accounts);
     }
 
     public void addAccount(String passport, Account account) {
-        User user = findByPassport(passport);
-        if (user != null) {
+        findByPassport(passport).ifPresent(user -> {
             List<Account> accounts = users.get(user);
             if (!accounts.contains(account)) {
                 accounts.add(account);
             }
-        }
+        });
     }
 
-    public User findByPassport(String passport) {
+    public Optional<User> findByPassport(String passport) {
         return users.keySet()
                 .stream()
                 .filter(user -> user.getPassport().equals(passport))
-                .findFirst()
-                .orElse(null);
+                .findFirst();
     }
 
     public Account findByRequisite(String passport, String requisite) {
-        User usr = findByPassport(passport);
-        if (usr != null) {
-            return users.get(usr)
-                    .stream()
-                    .filter(account -> account.getRequisite().equals(requisite))
-                    .findFirst()
-                    .orElse(null);
-        }
-        return null;
+        return findByPassport(passport)
+                .map(usr -> users.get(usr))
+                .orElse(Collections.emptyList())
+                .stream()
+                .filter(account -> requisite.equals(account.getRequisite()))
+                .findFirst()
+                .orElse(null);
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,

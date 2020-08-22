@@ -1,18 +1,11 @@
 package ru.job4j.stream;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class FlatIt {
     public static List<Integer> flatten(Iterator<Iterator<Integer>> it) {
         List<Integer> listInt = new ArrayList<>();
-        while (it.hasNext()) {
-            Iterator<Integer> next = it.next();
-            while (next.hasNext()) {
-                listInt.add(next.next());
-            }
-        }
+        it.forEachRemaining(iterator -> iterator.forEachRemaining(listInt::add));
         return listInt;
     }
 }
